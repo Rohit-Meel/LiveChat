@@ -49,10 +49,12 @@ const server = http.createServer((req, res) => {
         }
 
         const extension = path.extname(absolutePath).toLowerCase();
+
         res.writeHead(200, {
             'Content-Type': MIME_TYPES[extension] || 'application/octet-stream',
-            'Cache-Control': extension === '.html' ? 'no-cache' : 'public, max-age=86400'
+            'Cache-Control': 'no-cache, must-revalidate'
         });
+
         res.end(data);
     });
 });
