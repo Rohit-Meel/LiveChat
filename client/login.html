@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>iChat - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css?v=5"
+    >
+
+</head>
+
+
+<body class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-logo">
+
+                <img
+                    src="/assets/images/bg1.png"
+                    alt="iChat"
+                >
+
+            </div>
+
+
+            <h1>Welcome Back</h1>
+
+
+            <p class="auth-subtitle">
+                Login to continue chatting
+            </p>
+
+
+            <div
+                id="auth-message"
+                class="auth-message"
+            ></div>
+
+
+            <form
+                id="login-form"
+                autocomplete="off"
+            >
+
+                <div class="auth-field">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="login-btn"
+                    class="auth-btn"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <div class="auth-footer">
+
+                <span>
+                    Don't have an account?
+                </span>
+
+                <a href="/register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script
+        defer
+        src="/js/auth.js"
+    ></script>
+
+</body>
+
+</html>

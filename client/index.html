@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LiveChat</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+</head>
+
+<body>
+
+<!-- =====================================================
+     CHAT NAVBAR
+===================================================== -->
+
+<nav class="chat-navbar">
+
+    <div class="chat-logo">
+        <img
+            src="/assets/images/bg1.png"
+            alt="LiveChat"
+        >
+    </div>
+
+    <div class="chat-title">
+       Welcome to LiveChat Application
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     LOGGED-IN USER BAR
+===================================================== -->
+
+<div class="chat-user-bar">
+
+    <button
+        type="button"
+        id="chat-user-profile-btn"
+        class="chat-user-profile-btn"
+    >
+
+        <div class="chat-user-info">
+
+            <span class="chat-user-dot"></span>
+
+            <span id="chat-user-name">
+                User
+            </span>
+
+            <span id="chat-user-username">
+                @username
+            </span>
+
+        </div>
+
+    </button>
+
+
+    <div class="chat-top-actions">
+
+        <button
+            type="button"
+            id="group-message-actions-btn"
+            class="top-action-btn message-options-top-btn"
+            title="Message options"
+            hidden
+        >
+            ⋮
+        </button>
+
+
+        <button
+            type="button"
+            id="contacts-btn"
+            class="top-action-btn"
+        >
+            Contacts
+
+            <span id="contacts-unread-badge"></span>
+        </button>
+
+
+        <button
+            type="button"
+            id="logout-btn"
+            class="top-action-btn"
+        >
+            Logout
+        </button>
+
+    </div>
+
+
+    <!-- GROUP MESSAGE ACTION MENU -->
+
+    <div
+        id="group-message-action-menu"
+        class="top-message-action-menu"
+    >
+
+        <button
+            type="button"
+            data-action="reply"
+        >
+            Reply
+        </button>
+
+        <button
+            type="button"
+            data-action="react"
+        >
+            React
+        </button>
+
+        <button
+            type="button"
+            data-action="edit"
+        >
+            Edit
+        </button>
+
+        <button
+            type="button"
+            data-action="delete-me"
+        >
+            Delete for me
+        </button>
+
+        <button
+            type="button"
+            data-action="delete-everyone"
+            class="delete-everyone"
+        >
+            Delete for everyone
+        </button>
+
+        <button
+            type="button"
+            data-action="clear"
+        >
+            Clear selection
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     GROUP CHAT
+===================================================== -->
+
+<section
+    id="group-chat-screen"
+    class="chat-screen"
+>
+
+    <div
+        id="group-messages"
+    ></div>
+
+
+    <button
+        type="button"
+        id="group-scroll-latest"
+        class="scroll-latest-btn"
+        hidden
+    >
+        ↓ Latest
+    </button>
+
+
+    <div
+        id="group-typing"
+        class="typing-indicator"
+        hidden
+    >
+        Someone is typing...
+    </div>
+
+
+    <!-- GROUP REPLY BAR -->
+
+    <div
+        id="group-reply-bar"
+        class="reply-bar"
+        hidden
+    >
+
+        <div>
+
+            <strong id="group-reply-name">
+                Reply
+            </strong>
+
+            <span id="group-reply-text"></span>
+
+        </div>
+
+        <button
+            type="button"
+            id="group-reply-close"
+            aria-label="Cancel reply"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- GROUP SEND -->
+
+    <form
+        id="send-container"
+    >
+
+        <input
+            type="text"
+            id="message-input"
+            autocomplete="off"
+            maxlength="500"
+            placeholder="Type a message..."
+        >
+
+        <button
+            type="submit"
+            id="send-btn"
+        >
+            Send
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     PRIVATE CHAT
+===================================================== -->
+
+<section
+    id="private-chat-screen"
+    class="chat-screen"
+>
+
+
+    <!-- PRIVATE HEADER -->
+
+    <div class="private-chat-header">
+
+
+        <button
+            type="button"
+            id="private-back-btn"
+            class="private-back-btn"
+            title="Back"
+        >
+            ←
+        </button>
+
+
+        <button
+            type="button"
+            id="private-chat-title-btn"
+            class="private-chat-title-btn"
+        >
+
+            <span id="private-chat-title">
+                Private Chat
+            </span>
+
+            <span
+                id="private-chat-status"
+                class="private-chat-status"
+            >
+                Offline
+            </span>
+
+        </button>
+
+
+        <div
+            id="private-typing"
+            class="typing-indicator"
+            hidden
+        >
+            typing...
+        </div>
+
+
+        <!-- PRIVATE 3-DOT -->
+
+        <div
+            id="private-message-actions"
+            class="top-message-actions private-top-message-actions"
+        >
+
+            <button
+                type="button"
+                id="private-message-actions-btn"
+                class="top-action-btn message-options-top-btn"
+                title="Message options"
+                hidden
+            >
+                ⋮
+            </button>
+
+
+            <div
+                id="private-message-action-menu"
+                class="top-message-action-menu private-top-message-action-menu"
+            >
+
+                <button
+                    type="button"
+                    data-action="reply"
+                >
+                    Reply
+                </button>
+
+                <button
+                    type="button"
+                    data-action="react"
+                >
+                    React
+                </button>
+
+                <button
+                    type="button"
+                    data-action="edit"
+                >
+                    Edit
+                </button>
+
+                <button
+                    type="button"
+                    data-action="delete-me"
+                >
+                    Delete for me
+                </button>
+
+                <button
+                    type="button"
+                    data-action="delete-everyone"
+                    class="delete-everyone"
+                >
+                    Delete for everyone
+                </button>
+
+                <button
+                    type="button"
+                    data-action="clear"
+                >
+                    Clear selection
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BLOCK -->
+
+        <button
+            type="button"
+            id="private-block-btn"
+            class="private-block-btn"
+        >
+            Block
+        </button>
+
+    </div>
+
+
+    <!-- PRIVATE MESSAGES -->
+
+    <div
+        id="private-messages"
+    ></div>
+
+
+    <button
+        type="button"
+        id="private-scroll-latest"
+        class="scroll-latest-btn"
+        hidden
+    >
+        ↓ Latest
+    </button>
+
+
+    <!-- PRIVATE REPLY BAR -->
+
+    <div
+        id="private-reply-bar"
+        class="reply-bar"
+        hidden
+    >
+
+        <div>
+
+            <strong id="private-reply-name">
+                Reply
+            </strong>
+
+            <span id="private-reply-text"></span>
+
+        </div>
+
+        <button
+            type="button"
+            id="private-reply-close"
+            aria-label="Cancel reply"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- PRIVATE SEND -->
+
+    <form
+        id="private-send-container"
+    >
+
+        <input
+            type="text"
+            id="private-message-input"
+            autocomplete="off"
+            maxlength="500"
+            placeholder="Type a private message..."
+        >
+
+        <button
+            type="submit"
+            id="private-send-btn"
+        >
+            Send
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTS MODAL
+===================================================== -->
+
+<div
+    id="contacts-modal"
+    class="modal-overlay"
+    hidden
+>
+
+    <div class="modal-card">
+
+        <button
+            type="button"
+            id="contacts-modal-close"
+            class="modal-close"
+        >
+            ×
+        </button>
+
+        <h2>
+            Contacts
+            <span
+                id="contacts-count"
+                class="contacts-count"
+            ></span>
+        </h2>
+
+        <div
+            id="contacts-list"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PROFILE MODAL
+===================================================== -->
+
+<div
+    id="profile-modal"
+    class="profile-modal"
+    hidden
+>
+
+    <!-- VIEW CARD -->
+
+    <div
+        id="profile-view-card"
+        class="profile-modal-card"
+    >
+
+        <button
+            type="button"
+            id="profile-modal-close"
+            class="profile-modal-close"
+        >
+            ×
+        </button>
+
+
+        <div
+            id="profile-modal-avatar"
+            class="profile-modal-avatar"
+        ></div>
+
+
+        <h2
+            id="profile-modal-name"
+        >
+            User
+        </h2>
+
+
+        <div
+            id="profile-modal-username"
+            class="profile-modal-username"
+        >
+            @username
+        </div>
+
+
+        <div
+            id="profile-modal-status"
+            class="profile-modal-status"
+        >
+            Offline
+        </div>
+
+
+        <div
+            id="profile-modal-bio"
+            class="profile-modal-bio"
+        >
+        </div>
+
+
+        <button
+            type="button"
+            id="profile-modal-chat"
+            class="profile-modal-chat"
+        >
+            Message
+        </button>
+
+
+        <button
+            type="button"
+            id="profile-modal-edit"
+            class="profile-modal-chat profile-modal-edit"
+            hidden
+        >
+            Edit Profile
+        </button>
+
+    </div>
+
+
+    <!-- EDIT CARD -->
+
+    <div
+        id="profile-edit-card"
+        class="profile-modal-card profile-edit-card"
+        hidden
+    >
+
+        <button
+            type="button"
+            id="profile-edit-close"
+            class="profile-modal-close"
+        >
+            ×
+        </button>
+
+        <h2>Edit Profile</h2>
+
+        <form id="profile-edit-form">
+
+            <label class="profile-edit-label">
+                Name
+                <input
+                    type="text"
+                    id="profile-edit-name"
+                    maxlength="50"
+                    required
+                >
+            </label>
+
+            <label class="profile-edit-label">
+                Username
+                <input
+                    type="text"
+                    id="profile-edit-username"
+                    maxlength="30"
+                    required
+                >
+            </label>
+
+            <label class="profile-edit-label">
+                Bio
+                <textarea
+                    id="profile-edit-bio"
+                    maxlength="250"
+                    rows="3"
+                ></textarea>
+            </label>
+
+            <div
+                id="profile-edit-error"
+                class="profile-edit-error"
+                hidden
+            ></div>
+
+            <button
+                type="submit"
+                id="profile-edit-save"
+                class="profile-modal-chat"
+            >
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NOTIFICATION AUDIO
+===================================================== -->
+
+<audio
+    id="notification-sound"
+    preload="auto"
+>
+    <source
+        src="/assets/audio/ding.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- =====================================================
+     SOCKET.IO
+===================================================== -->
+
+<script src="/socket.io/socket.io.js"></script>
+
+
+<!-- =====================================================
+     CLIENT JS
+===================================================== -->
+
+<script src="/js/client.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - LiveChat</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="chat-navbar">
+
+        <img
+            src="/assets/images/bg1.png"
+            alt="LiveChat Logo"
+            class="chat-logo"
+        >
+
+        <div class="chat-title">
+            My Profile
+        </div>
+
+    </div>
+
+
+    <div class="profile-page">
+
+        <div class="profile-card">
+
+            <div class="profile-header">
+
+                <button
+                    type="button"
+                    id="profile-back"
+                    class="profile-back-btn"
+                >
+                    ←
+                </button>
+
+                <div class="profile-heading">
+                    My Profile
+                </div>
+
+            </div>
+
+
+            <div
+                id="profile-message"
+                class="profile-message"
+            ></div>
+
+
+            <div class="profile-avatar-section">
+
+                <div
+                    id="profile-avatar"
+                    class="profile-avatar"
+                >
+                    ?
+                </div>
+
+            </div>
+
+
+            <form id="profile-form">
+
+                <div class="profile-field">
+
+                    <label for="profile-name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profile-name"
+                        maxlength="50"
+                        autocomplete="name"
+                    >
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label for="profile-username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profile-username"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label for="profile-email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="profile-email"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label for="profile-bio">
+                        Bio
+                    </label>
+
+                    <textarea
+                        id="profile-bio"
+                        maxlength="250"
+                        rows="4"
+                        placeholder="Write something about yourself..."
+                    ></textarea>
+
+                    <div class="profile-bio-count">
+                        <span id="bio-count">0</span>/250
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="profile-save-btn"
+                    class="profile-save-btn"
+                >
+                    Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="/js/profile.js"></script>
+
+</body>
+
+</html>

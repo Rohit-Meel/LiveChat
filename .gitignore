@@ -1,0 +1,11 @@
+node_modules/
+.env
+
+uploads/images/*
+uploads/temp/*
+
+!.gitkeep
+
+source.zip
+
+zip.zip
