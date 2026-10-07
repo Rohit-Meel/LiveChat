@@ -2,10 +2,10 @@
   "name": "ichat",
   "version": "1.0.0",
   "description": "Production-ready real-time iChat application using Node.js and Socket.IO",
-  "main": "nodeServer/index.js",
+  "main": "server/index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node nodeServer/index.js"
+    "start": "node server/index.js"
   },
   "engines": {
     "node": ">=18"
